@@ -39,7 +39,6 @@ app.controller('regController', ['$scope', '$http', '$window', function($scope, 
         $http.post(url, $scope.data.upd).then(function(success) {
             var resp = success.data;
             $scope.status = resp.msg;
-            console.log(resp);
             alert(resp.msg);
             $scope.upd = {};
         }, function(err) {

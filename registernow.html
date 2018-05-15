@@ -81,7 +81,7 @@ Register 				</span>
 
                 <div class="wrap-input100 bg1 rs1-wrap-input100">
                     <span class="label-input100">College</span>
-                    <input ng-model="data.college" class="input100" type="text" name="college" placeholder="Enter College">
+                    <input ng-model="data.collegeName" class="input100" type="text" name="college" placeholder="Enter College">
                 </div>
 
                 <div class="wrap-input100 bg1 rs1-wrap-input100">
@@ -162,14 +162,12 @@ Register 				</span>
                 </div>
 
 
-
-
                 <div class="wrap-input100 input100-select bg1">
                     <span class="label-input100">Are you an IEEE Member?</span>
                     <div>
                         <select ng-model="data.ieeeMem" class="js-select2" name="service" onchange="ieee()" id="ieeeMem">
-							<option selected="selected" value=0>Yes</option>
-							<option value=1>No</option>
+							<option selected="selected" value="Yes">Yes</option>
+							<option value="No">No</option>
 						</select>
                         <div class="dropDownSelect2"></div>
                     </div>
@@ -193,7 +191,7 @@ Register 				</span>
                     <input ng-model="data.ieeeNum" class="input100" type="text" name="phone" placeholder="Enter IEEE Number" id="ieeeNum">
                 </div>
                 <div class="container-contact100-form-btn">
-                    <button>
+                    <button ng-click="register()">
 						<span>
 							Register
 							<i class=" fa fa-long-arrow-right m-l-7 " aria-hidden="true "></i>
@@ -212,20 +210,21 @@ Register 				</span>
 
 
 
-            if (abc == 0) {
-                document.getElementById('ieeeNum').style.visibility = "hidden";
+            if (abc == "No") {
+                document.getElementById('ieeeNum').style.visibility = "hidden ";
                 //document.getElementById('ieeehub').style.visibility = "hidden ";
                 //document.getElementById('hub').style.visibility = "hidden ";
 
 
             }
 
-            if (abc == 1) {
-                document.getElementById('ieeeNum').style.visibility = "visible";
+            if (abc == "Yes") {
+                document.getElementById('ieeeNum').style.visibility = "visible ";
                 //document.getElementById('ieeehub').style.visibility = "visible ";
                 //document.getElementById('hub').style.visibility = "visible ";
 
             }
+
         }
 
 
@@ -303,7 +302,7 @@ Register 				</span>
             var obj4 = document.getElementById("ieeeMem");
             var abc4 = obj4.options[obj4.selectedIndex].text;
 
-            if (abc4 == 1 && (ieeeNum == null || ieeeNum == "")) {
+            if (abc4 == "Yes" && (ieeeNum == null || ieeeNum == "")) {
                 alert("Ieee Number must be filled ");
                 return false;
             }
@@ -321,7 +320,7 @@ Register 				</span>
                 alert("Exam centres have to be different");
                 return false;
             }
-            angular.element(document.getElementById('regController')).scope().register();
+            return true;
         }
     </script>
     <script src="bower_components/jquery/dist/jquery.min.js "></script>

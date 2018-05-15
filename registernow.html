@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Register</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="fav.png"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/noui/nouislider.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+
+
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="" id="form1" onsubmit="return validateForm()">
+				<span class="contact100-form-title">
+Register 				</span><center> All Fields are Mandatory</center><br><br>
+
+
+				<div class="wrap-input100 bg1" data-validate="Please Type Your Name">
+					<span class="label-input100">FULL NAME</span>
+					<input class="input100" type="text" name="name" placeholder="Enter Your Name">
+				</div>
+				
+				
+				<div class="wrap-input100 bg1 rs1-wrap-input100" >
+					<span class="label-input100">Password</span>
+					<input class="input100" type="password" name="password" placeholder="Enter Your Password ">
+				</div>
+				
+				<div class="wrap-input100 bg1 rs1-wrap-input100" >
+					<span class="label-input100">Confirm Password</span>
+					<input class="input100" type="password" name="confirmpassword" placeholder="Confirm Your Password ">
+				</div>
+				
+				<div class="wrap-input100 bg1 rs1-wrap-input100" >
+					<span class="label-input100">Email </span>
+					<input class="input100" type="text" name="email" placeholder="Enter Your Email ">
+				</div>
+				
+				
+				<div class="wrap-input100 bg1" >
+					<span class="label-input100">Address</span>
+					<input class="input100" type="text" name="address" placeholder="Enter Your Address">
+				</div>
+				
+	
+				<div class="wrap-input100 bg1 rs1-wrap-input100">
+					<span class="label-input100">Phone</span>
+					<input class="input100" type="text" name="phone" placeholder="Enter Number Phone">
+				</div>
+				
+				<div class="wrap-input100 bg1 rs1-wrap-input100">
+					<span class="label-input100">Age</span>
+					<input class="input100" type="text" name="age" placeholder="Enter Age">
+				</div>
+
+				<div class="wrap-input100 bg1 rs1-wrap-input100">
+					<span class="label-input100">College</span>
+					<input class="input100" type="text" name="college" placeholder="Enter College">
+				</div>
+				
+				<div class="wrap-input100 bg1 rs1-wrap-input100">
+					<span class="label-input100">Branch</span>
+					<div>
+						<select class="js-select2" name="service" id="stream" name="stream">
+							<option selected="selected" value="Applied Electronics">Applied Electronics</option>
+							<option value="Electronics and Communication">Electronics and Communication</option>
+							<option value="Computer Science">Computer Science</option>
+							<option value="Industrial">Industrial</option>
+							<option value="Mechanical">Mechanical</option>
+							<option value="Civil">Civil</option>
+							<option value="Electrical and Electronics">Electrical and Electronics</option>
+							<option value="Information Technology">Information Technology</option>
+
+
+						</select>
+						<div class="dropDownSelect2"></div>
+					</div>
+					
+				</div>
+				
+				<div class="wrap-input100 bg1 rs1-wrap-input100">
+					<span class="label-input100">Year of Passing Out</span>
+					<input class="input100" type="text" name="passing" placeholder="Enter Passing Year">
+				</div>
+				
+				<div class="wrap-input100 bg1 rs1-wrap-input100">
+					<span class="label-input100">Number of Backpapers at present</span>
+					<input class="input100" type="text" name="backpapers" placeholder="Enter Number of backpapers">
+				</div>
+				
+				<div class="wrap-input100 bg1 rs1-wrap-input100">
+					<span class="label-input100">Enter CGPA</span>
+					<input class="input100" type="text" name="cgpa" placeholder="Enter CGPA">
+				</div>
+							
+				<div class="wrap-input100 input100-select bg1">
+					<span class="label-input100">Select First Choice Exam Center </span>
+					<div>
+						<select class="js-select2" name="service" id="centre1">
+							<option selected="selected"  value="kochi">Kochi</option>
+							<option value="trivandrum">Trivandrum</option>
+							<option value="calicut">Calicut</option>
+							<option value="palakkad">Palakkad</option>
+							<option value="allapuzha">Allapuzha</option>
+						</select>
+						<div class="dropDownSelect2"></div>
+					</div>
+				</div>
+				
+				<div class="wrap-input100 input100-select bg1">
+					<span class="label-input100">Select Second Choice Exam Center </span>
+					<div>
+						<select class="js-select2" name="service" id="centre2">
+							<option selected="selected"  value="kochi">Kochi</option>
+							<option value="trivandrum">Trivandrum</option>
+							<option value="calicut">Calicut</option>
+							<option value="palakkad">Palakkad</option>
+							<option value="allapuzha">Allapuzha</option>
+						</select>
+						<div class="dropDownSelect2"></div>
+					</div>
+				</div>
+				
+				<div class="wrap-input100 input100-select bg1">
+					<span class="label-input100">Select Third Choice Exam Center </span>
+					<div>
+						<select class="js-select2" name="service" id="centre3">
+							<option selected="selected"  value="kochi">Kochi</option>
+							<option value="trivandrum">Trivandrum</option>
+							<option value="calicut">Calicut</option>
+							<option value="palakkad">Palakkad</option>
+							<option value="allapuzha">Allapuzha</option>
+						</select>
+						<div class="dropDownSelect2"></div>
+					</div>
+				</div>
+				
+				
+				
+				
+				<div class="wrap-input100 input100-select bg1">
+					<span class="label-input100">Are you an IEEE Member?</span>
+					<div>
+						<select class="js-select2" name="service" onchange="ieee()" id="ieeeMem">
+							<option selected="selected" value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+						<div class="dropDownSelect2"></div>
+					</div>
+				</div>
+				
+				<div class="wrap-input100 bg1 rs1-wrap-input100" id="ieeehub">
+					<span class="label-input100" id="ieeehub">Select Hub</span>
+					<div>
+						<select class="js-select2" name="service" id="hub">
+							<option selected="selected"  value="kochi">Kochi</option>
+							<option value="travancore">Travancore</option>
+							<option value="malabar">Malabar</option>
+
+						</select>
+						<div class="dropDownSelect2"></div>
+					</div>
+				</div>
+				
+				<div class="wrap-input100 bg1 rs1-wrap-input100" id="ieeeNum">
+					<span class="label-input100">Enter IEEE Number</span>
+					<input class="input100" type="text" name="phone" placeholder="Enter IEEE Number" id="ieeeNum">
+				</div>
+					
+				
+					
+
+				
+
+				
+
+				<div class="container-contact100-form-btn">
+					<button class="contact100-form-btn" >
+						<span>
+							Register
+							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+						</span>
+					</button>
+				</div>
+			</form>
+			</div>
+	</div>
+<script>
+		
+		function ieee()
+		{
+		
+	var obj = document.getElementById("ieeeMem");
+    var abc=obj.options[obj.selectedIndex].text;
+	
+	
+	
+	
+	if(abc=="No")
+	{
+	document.getElementById('ieeeNum').style.visibility = "hidden";
+	//document.getElementById('ieeehub').style.visibility = "hidden";
+			//document.getElementById('hub').style.visibility = "hidden";
+
+
+	}
+		
+		if(abc=="Yes")
+	{
+	document.getElementById('ieeeNum').style.visibility = "visible";
+		//document.getElementById('ieeehub').style.visibility = "visible";
+		//document.getElementById('hub').style.visibility = "visible";
+
+	}
+		}
+		
+		
+		function validateForm()
+{
+var name=document.forms["form1"]["name"].value;
+if (name==null || name=="")
+  {
+  alert("Name must be filled out");
+  return false;
+  }
+  
+
+var password=document.forms["form1"]["password"].value;
+  if (password==null || password=="")
+  {alert("Password must be filled out");
+  return false;
+  }
+  
+  var confirmpassword=document.forms["form1"]["confirmpassword"].value;
+if (confirmpassword==null || confirmpassword=="")
+{
+  alert("Password must be confirmed");
+  return false;
+  }
+  if(password !=confirmpassword)
+  {
+  alert("Passwords do not match");
+  return false;
+  }
+    var email=document.forms["form1"]["email"].value;
+if (email==null || email=="")
+  {
+  alert("Email must be filled out");
+  return false;
+  }
+  
+  
+  /*var phone=document.forms["form1"]["phone"].value;
+  if (phone==null || phone=="")
+  {
+  alert("Phone must be filled out");
+  return false;
+  }*/
+  
+  
+  var age=document.forms["form1"]["age"].value;
+  
+if (age==null || age=="")
+  {alert("Age must be filled out");
+  return false;
+  }
+  
+    var college=document.forms["form1"]["college"].value;
+  
+if (college==null || college=="")
+  {alert("College must be filled out");
+  return false;
+  }
+  
+    var backpapers=document.forms["form1"]["backpapers"].value;
+  
+if (backpapers==null || backpapers=="")
+ { alert("Backpapers must be filled out");
+  return false;
+  }
+    var cgpa=document.forms["form1"]["cgpa"].value;
+  
+if (cgpa==null || cgpa=="")
+  {alert("Cgpa must be filled out");
+  return false;
+  }  
+  
+  var ieeeNum=document.forms["form1"]["ieeeNum"].value;
+  	
+	var obj1 = document.getElementById("centre1");
+    var abc1=obj1.options[obj1.selectedIndex].text;
+	
+		var obj2 = document.getElementById("centre2");
+    var abc2=obj2.options[obj2.selectedIndex].text;
+	
+		var obj3 = document.getElementById("centre3");
+    var abc3=obj3.options[obj3.selectedIndex].text;
+  
+  alert(abc1abc2abc3);
+  
+
+  }
+	</script>
+
+
+	
+
+</body>
+</html>

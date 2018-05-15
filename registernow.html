@@ -271,7 +271,12 @@ if (email==null || email=="")
   return false;
   }
   
+    var address=document.forms["form1"]["address"].value;
   
+if (address==null || address=="")
+  {alert("address must be filled out");
+  return false;
+  }
   /*var phone=document.forms["form1"]["phone"].value;
   if (phone==null || phone=="")
   {
@@ -308,6 +313,14 @@ if (cgpa==null || cgpa=="")
   }  
   
   var ieeeNum=document.forms["form1"]["ieeeNum"].value;
+  	var obj4 = document.getElementById("ieeeMem");
+    var abc4=obj4.options[obj4.selectedIndex].text;
+	
+	if(abc4=="Yes" && (ieeeNum==null || ieeeNum==""))
+	  {
+	  alert("Ieee Number must be filled");
+	  return false;
+	  }
   	
 	var obj1 = document.getElementById("centre1");
     var abc1=obj1.options[obj1.selectedIndex].text;
@@ -318,8 +331,11 @@ if (cgpa==null || cgpa=="")
 		var obj3 = document.getElementById("centre3");
     var abc3=obj3.options[obj3.selectedIndex].text;
   
-  alert(abc1abc2abc3);
-  
+	if(abc1 ==abc2 || abc1==abc3 || abc2==abc3)
+	{
+	alert("Exam centres have to be different");
+	return false;
+	}
 
   }
 	</script>

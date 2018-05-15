@@ -38,7 +38,7 @@ Register 				</span><center> All Fields are Mandatory</center><br><br>
 
 
 				<div class="wrap-input100 bg1" data-validate="Please Type Your Name">
-					<span class="label-input100">FULL NAME *</span>
+					<span class="label-input100">FULL NAME</span>
 					<input class="input100" type="text" name="name" placeholder="Enter Your Name">
 				</div>
 				
@@ -48,12 +48,12 @@ Register 				</span><center> All Fields are Mandatory</center><br><br>
 				</div>
 
 				<div class="wrap-input100 bg1 rs1-wrap-input100" >
-					<span class="label-input100">Password *</span>
+					<span class="label-input100">Password</span>
 					<input class="input100" type="password" name="password" placeholder="Enter Your Password ">
 				</div>
 				
 				<div class="wrap-input100 bg1 rs1-wrap-input100" >
-					<span class="label-input100">Confirm Password *</span>
+					<span class="label-input100">Confirm Password</span>
 					<input class="input100" type="password" name="confirmpassword" placeholder="Confirm Your Password ">
 				</div>
 				
@@ -160,7 +160,7 @@ Register 				</span><center> All Fields are Mandatory</center><br><br>
 				
 				
 				<div class="wrap-input100 input100-select bg1">
-					<span class="label-input100">Are you an IEEE Member? *</span>
+					<span class="label-input100">Are you an IEEE Member?</span>
 					<div>
 						<select class="js-select2" name="service" onchange="ieee()" id="ieeeMem">
 							<option selected="selected" value="yes">Yes</option>
@@ -243,7 +243,7 @@ if (name==null || name=="")
   return false;
   }
   
-  var name=document.forms["form1"]["email"].value;
+  var email=document.forms["form1"]["email"].value;
 if (email==null || name=="")
   {
   alert("Name must be filled out");
@@ -251,64 +251,60 @@ if (email==null || name=="")
   }
   
 var uid=document.forms["form1"]["uid"].value;
-  {
+  
 if (uid==null || uid=="")
+  {
   alert("Username must be filled out");
   return false;
   }
   
 var password=document.forms["form1"]["password"].value;
-  {
-if (password==null || password=="")
-  alert("Password must be filled out");
+  if (password==null || password=="")
+  {alert("Password must be filled out");
   return false;
   }
   
   var confirmpassword=document.forms["form1"]["confirmpassword"].value;
-  {
 if (confirmpassword==null || confirmpassword=="")
+{
   alert("Password must be confirmed");
   return false;
   }
   
   var phone=document.forms["form1"]["phone"].value;
-  {
-if (phone==null || phone=="")
-  alert("phone must be filled out");
-  return false;
-  }
+  
   
   var age=document.forms["form1"]["age"].value;
-  {
+  
 if (age==null || age=="")
-  alert("Age must be filled out");
+  {alert("Age must be filled out");
   return false;
   }
   
     var college=document.forms["form1"]["college"].value;
-  {
+  
 if (college==null || college=="")
-  alert("College must be filled out");
+  {alert("College must be filled out");
   return false;
   }
   
     var backpapers=document.forms["form1"]["backpapers"].value;
-  {
+  
 if (backpapers==null || backpapers=="")
-  alert("Backpapers must be filled out");
+ { alert("Backpapers must be filled out");
   return false;
   }
     var cgpa=document.forms["form1"]["cgpa"].value;
-  {
+  
 if (cgpa==null || cgpa=="")
-  alert("College must be filled out");
+  {alert("College must be filled out");
   return false;
   }  
   
-  var cgpa=document.forms["form1"]["ieeeNum"].value;
-  {
+  var ieeeNum=document.forms["form1"]["ieeeNum"].value;
+  
   if (ieeeNum==null || ieeeNum=="")
-  alert("College must be filled out");
+  {alert("College must be filled out");
   return false;
   }  
   }

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" ng-app="jobfair">
 
 <head>
     <meta charset="utf-8">
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 
-<body data-spy="scroll" data-target="#site-nav">
+<body data-spy="scroll" data-target="#site-nav" ng-controller="regController">
     <nav id="site-nav" class="navbar navbar-fixed-top navbar-custom">
         <div class="container">
             <div class="navbar-header">
@@ -82,22 +82,19 @@
                     </div>
                 </div>
 
-                <form action="#" id="registration-form">
+                <form method="post" action="#" id="registration-form">
                     <div class="row">
                         <div class="col-md-" id="registration-msg" style="display:none;">
                             <div class="alert"></div>
                         </div>
                         <div class="col-sm-12">
 
-
-
-
                             <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Email" id="email" name="email" required>
+                                <input ng-model="data.login.email" type="email" class="form-control" placeholder="Email" id="email" name="email" required>
                             </div>
 
                             <div class="form-group" align="center">
-                                <input type="password" class="form-control" placeholder="Password" id="password" name="password" required>
+                                <input ng-model="data.login.password" type="password" class="form-control" placeholder="Password" id="password" name="password" required>
                             </div>
 
                         </div>
@@ -105,7 +102,7 @@
 
                     </div>
                     <div class="text-center mt20">
-                        <button type="submit" class="btn btn-black" id="registration-submit-btn">Login</button><br><br>
+                        <button ng-click="loginFn()" type="submit" class="btn btn-black" id="registration-submit-btn">Login</button><br><br>
                         <p><a href="#">Forgot Password? </a></p>
                         <p><a href="register.html">New User ? Register Now</a></p>
                     </div>
@@ -122,7 +119,7 @@
                 </div>
             </div>
 
-            <form action="#" id="registration-form">
+            <form method="post" action="#" id="registration-form">
                 <div class="row">
                     <div class="col-md-" id="registration-msg" style="display:none;">
                         <div class="alert"></div>
@@ -133,14 +130,15 @@
 
 
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Email" id="email" name="email" required>
+                            <input ng-model="data.upd.email" type="email" class="form-control" placeholder="Email" id="email" name="email" required>
                         </div>
 
                         <div class="form-group" align="center">
-                            <input type="password" class="form-control" placeholder="Password" id="password" name="password" required>
+                            <input ng-model="data.upd.password" type="password" class="form-control" placeholder="Password" id="password" name="password" required>
                         </div>
+
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Yepdesk transactional Id" id="yepdesk" name="yepdesk" required>
+                            <input ng-model="data.upd.transID" type="text" class="form-control" placeholder="Yepdesk transactional Id" id="yepdesk" name="yepdesk" required>
                         </div>
 
                     </div>
@@ -148,7 +146,7 @@
 
                 </div>
                 <div class="text-center mt20">
-                    <button type="submit" class="btn btn-black" id="registration-submit-btn">Submit</button><br><br>
+                    <button ng-click="updateNonIEEE()" type="submit" class="btn btn-black" id="registration-submit-btn">Update Details</button><br><br>
                 </div>
             </form>
         </div>
@@ -162,7 +160,7 @@
                     <h3 class="section-title">Guidelines</h3>
 
                     <ul>
-                        <li> IEEE job fair is a joint initiative taken up by the IEEE Kochi section and IEEE Kochi subsection </li>
+                        <li> IEEE job fair is a joint initiative taken up by the IEEE Kerala section and IEEE Kochi subsection </li>
                         <li> This is the third consecutive year that the fair is being conducted.IEEE Job Fair 2018 is the perfect platform for recruiters and the candidates to interact and discover their common ground. </li>
                         <li> The candidates get to show their true potential and stand a chance to work with experts from various fields </li>
                         <li> With the wide array of companies arriving at the fair, the candidates get more exposure and choices.IEEE job fair is also the ideal place for companies to hire employees who fit the bill </li>

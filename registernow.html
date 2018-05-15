@@ -96,7 +96,7 @@ Register 				</span>
 							<option value="Civil">Civil</option>
 							<option value="Electrical and Electronics">Electrical and Electronics</option>
 							<option value="Information Technology">Information Technology</option>
-
+                                                        <option value="Other">Other</option>
 
 						</select>
                         <div class="dropDownSelect2"></div>
@@ -125,9 +125,8 @@ Register 				</span>
                         <select ng-model="data.centre1" class="js-select2" name="service" id="centre1">
 							<option selected="selected"  value="Kochi">Kochi</option>
 							<option value="Trivandrum">Trivandrum</option>
-							<option value="Calicut">Calicut</option>
-							<option value="Palakkad">Palakkad</option>
-							<option value="Alapuzha">Allapuzha</option>
+							<option value="Kollam">Kollam</option>
+							<option value="Kuttipuram">Kuttipuram</option>
 						</select>
                         <div class="dropDownSelect2"></div>
                     </div>
@@ -139,9 +138,8 @@ Register 				</span>
                         <select ng-model="data.centre2" class="js-select2" name="service" id="centre2">
 							<option selected="selected"  value="Kochi">Kochi</option>
 							<option value="Trivandrum">Trivandrum</option>
-							<option value="Calicut">Calicut</option>
-							<option value="Palakkad">Palakkad</option>
-							<option value="Alapuzha">Allapuzha</option>
+							<option value="Kollam">Kollam</option>
+							<option value="Kuttipuram">Kuttipuram</option>
 						</select>
                         <div class="dropDownSelect2"></div>
                     </div>
@@ -153,9 +151,8 @@ Register 				</span>
                         <select ng-model="data.centre3" class="js-select2" name="service" id="centre3">
 							<option selected="selected"  value="Kochi">Kochi</option>
 							<option value="Trivandrum">Trivandrum</option>
-							<option value="Calicut">Calicut</option>
-							<option value="Palakkad">Palakkad</option>
-							<option value="Alapuzha">Allapuzha</option>
+							<option value="Kollam">Kollam</option>
+							<option value="Kuttipuram">Kuttipuram</option>
 						</select>
                         <div class="dropDownSelect2"></div>
                     </div>
@@ -291,6 +288,17 @@ Register 				</span>
                 alert("Backpapers must be filled out ");
                 return false;
             }
+
+            var year = document.forms["form1"]["passing"].value;
+
+            if (year == null || year == "") {
+                alert("year must be filled out ");
+                return false;
+            } else if (year != "2018") {
+                alert("Job Fair only for 2018 passouts");
+                return false;
+            }
+
             var cgpa = document.forms["form1"]["cgpa"].value;
 
             if (cgpa == null || cgpa == "") {
@@ -318,7 +326,8 @@ Register 				</span>
 
             if (abc1 == abc2 || abc1 == abc3 || abc2 == abc3) {
                 alert("Exam centres have to be different");
-                return false;
+                return fal
+                se;
             }
             angular.element(document.getElementById('regdiv')).scope().register();
         }

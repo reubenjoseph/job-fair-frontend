@@ -23,7 +23,7 @@ app.controller('regController', ['$scope', '$http', '$window', function($scope, 
             var resp = success.data;
             $scope.status = resp.msg;
             if (resp.success) {
-                alert("Your user ID is : " + resp.user + ". Dashboard will be updated soon!");
+                alert("Your user ID is : " + resp.user + ".Please note this ID down for future use.Dashboard will be updated soon!.All communications will be made temporarily though email.");
                 // $window.location.href = './loginpage.html';
             } else {
                 alert('Login Failed : ' + resp.msg);

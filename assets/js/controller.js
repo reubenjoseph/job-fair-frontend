@@ -3,9 +3,9 @@ var app = angular.module('jobfair', []);
 
 app.controller('regController', ['$scope', '$http', '$window', function($scope, $http, $window) {
 
-
+    var host = 'http://34.242.23.100:3030'
     $scope.register = function() {
-        var url = 'http://localhost:3030/register';
+        var url = host + '/register';
         $http.post(url, $scope.data).then(function(success) {
             var resp = success.data;
             // console.log(resp);
@@ -18,7 +18,7 @@ app.controller('regController', ['$scope', '$http', '$window', function($scope, 
     };
 
     $scope.loginFn = function() {
-        var url = 'http://localhost:3030/login';
+        var url = host + '/login';
         $http.post(url, $scope.data.login).then(function(success) {
             var resp = success.data;
             $scope.status = resp.msg;
@@ -35,7 +35,7 @@ app.controller('regController', ['$scope', '$http', '$window', function($scope, 
     };
 
     $scope.updateNonIEEE = function() {
-        var url = 'http://localhost:3030/nonmemberupdate';
+        var url = host + '/nonmemberupdate';
         $http.post(url, $scope.data.upd).then(function(success) {
             var resp = success.data;
             $scope.status = resp.msg;

@@ -93,7 +93,7 @@ Register 				</span>
 							<option value="Computer Science">Computer Science</option>
 							<option value="Industrial">Industrial</option>
 							<option value="Mechanical">Mechanical</option>
-							<option value="Civil">Civil</option>
+							<option value="Civil">Civil</option>    
 							<option value="Electrical and Electronics">Electrical and Electronics</option>
 							<option value="Information Technology">Information Technology</option>
                                                         <option value="Other">Other</option>
@@ -324,10 +324,9 @@ Register 				</span>
             var obj3 = document.getElementById("centre3");
             var abc3 = obj3.options[obj3.selectedIndex].text;
 
-            if (abc1 == abc2 || abc1 == abc3 || abc2 == abc3) {
-                alert("Exam centres have to be different");
-                return fal
-                se;
+            if (abc1 == null || abc2 == null || abc3 == null || abc1 == abc2 || abc1 == abc3 || abc2 == abc3) {
+                alert("Exam centres have to be different and Must not be left blank");
+                return false;
             }
             angular.element(document.getElementById('regdiv')).scope().register();
         }

@@ -37,6 +37,7 @@ app.controller('regController', ['$scope', '$http', '$window', function($scope, 
     $scope.updateNonIEEE = function() {
         var url = host + '/nonmemberupdate';
         $http.post(url, $scope.data.upd).then(function(success) {
+            // console.log(resp.data);
             var resp = success.data;
             $scope.status = resp.msg;
             alert(resp.msg);

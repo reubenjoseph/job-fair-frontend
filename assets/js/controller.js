@@ -47,4 +47,17 @@ app.controller('regController', ['$scope', '$http', '$window', function($scope, 
         });
     };
 
+    $scope.updateVenues = function() {
+        var url = host + '/venuechange';
+        $http.post(url, $scope.data.venue).then(function(success) {
+            // console.log(resp.data);
+            var resp = success.data;
+            $scope.status = resp.msg;
+            alert(resp.msg);
+            $scope.venue = {};
+        }, function(err) {
+            // console.log(err);
+        });
+    };
+
 }]);

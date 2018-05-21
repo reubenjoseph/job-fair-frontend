@@ -63,11 +63,11 @@
 
 
             <h1>IEEE Job Fair 2018</h1>
-
             <p>You are one click away</p>
 
             <!--<a class="btn btn-white" href="registernow.html" target="_blank">Register Now</a>-->
             <a class="btn btn-white" href="#instr" target="_blank">Proceed to Register</a>
+            <marquee><b>Click <a href="#testchange">Here</a> to Update Test Centres</b></marquee>
 
         </div>
     </header>
@@ -135,13 +135,10 @@
 
             <form method="post" onsubmit="return validate()" id="upd">
                 <div id="updiv" class="row">
-                    <div class="col-md-" id="registration-msg" style="display:none;">
+                    <div class="col-md-12" id="registration-msg" style="display:none;">
                         <div class="alert"></div>
                     </div>
                     <div class="col-sm-12">
-
-
-
 
                         <div class="form-group">
                             <input ng-model="data.upd.email" type="email" class="form-control" placeholder="Email" id="email" name="email" required>
@@ -161,6 +158,75 @@
                 </div>
                 <div class="text-center mt20">
                     <button type="submit" class="btn btn-black" id="registration-submit-btn">Update Details</button><br><br>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section id="testchange" class="section about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="section-title" align="center">Update Test Centres </h3>
+                </div>
+            </div>
+
+            <form method="post" id="venueUpd">
+                <div id="venuediv" class="row">
+                    <div class="col-md-" id="registration-msg" style="display:none;">
+                        <div class="alert"></div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input ng-model="data.venue.email" type="email" class="form-control" placeholder="Email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group" align="center">
+                            <input ng-model="data.venue.password" type="password" class="form-control" placeholder="Password" id="password" name="password" required>
+                        </div>
+                        <div class="wrap-input100 input100-select bg1">
+                            <span class="label-input100">Select First Choice Of Exam Centre </span>
+                            <div>
+                                <select ng-model="data.venue.centre1" class="js-select2" name="service" id="centre1">
+							<option selected="selected"  value="Kochi">Kochi</option>
+							<option value="Trivandrum">Trivandrum</option>
+							<option value="Kollam">Kollam</option>
+							<option value="Kuttipuram">Kuttipuram</option>
+						</select>
+                                <div class="dropDownSelect2"></div>
+                            </div>
+                        </div>
+
+                        <div class="wrap-input100 input100-select bg1">
+                            <span class="label-input100">Select Second Choice Of Exam Centre  </span>
+                            <div>
+                                <select ng-model="data.venue.centre2" class="js-select2" name="service" id="centre2">
+							<option selected="selected"  value="Kochi">Kochi</option>
+							<option value="Trivandrum">Trivandrum</option>
+							<option value="Kollam">Kollam</option>
+							<option value="Kuttipuram">Kuttipuram</option>
+						</select>
+                                <div class="dropDownSelect2"></div>
+                            </div>
+                        </div>
+
+                        <div class="wrap-input100 input100-select bg1">
+                            <span class="label-input100">Select Third Choice Of Exam Centre  </span>
+                            <div>
+                                <select ng-model="data.venue.centre3" class="js-select2" name="service" id="centre3">
+							<option selected="selected"  value="Kochi">Kochi</option>
+							<option value="Trivandrum">Trivandrum</option>
+							<option value="Kollam">Kollam</option>
+							<option value="Kuttipuram">Kuttipuram</option>
+						</select>
+                                <div class="dropDownSelect2"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="text-center mt20">
+                    <button type="submit" ng-click="updateVenues()" class="btn btn-black" id="updv">Update Venues</button><br><br>
                 </div>
             </form>
         </div>

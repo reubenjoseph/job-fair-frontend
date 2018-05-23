@@ -85,6 +85,18 @@ Register 				</span>
                 </div>
 
                 <div class="wrap-input100 bg1 rs1-wrap-input100">
+                    <span class="label-input100">Course</span>
+                    <div>
+                        <select ng-model="data.course" class="js-select2" name="service" id="course" name="course">
+							<option selected="selected" value="B.Tech">B.Tech</option>
+							<option value="M.Tech">M.Tech</option>
+						</select>
+                        <div class="dropDownSelect2"></div>
+                    </div>
+
+                </div>
+
+                <div class="wrap-input100 bg1 rs1-wrap-input100">
                     <span class="label-input100">Branch</span>
                     <div>
                         <select ng-model="data.stream" class="js-select2" name="service" id="stream" name="stream">
@@ -303,6 +315,12 @@ Register 				</span>
 
             if (cgpa == null || cgpa == "") {
                 alert("Cgpa must be filled out ");
+                return false;
+            }
+
+            var course = document.forms["form1"]["course"].value;
+            if (course == null || course == "") {
+                alert("Course must be filled out ");
                 return false;
             }
 

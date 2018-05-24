@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bower_components/ionicons/css/ionicons.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.min.js"></script>
+
 </head>
 
 <body data-spy="scroll" data-target="#site-nav" ng-controller="regController">
@@ -278,15 +280,17 @@
     </section>-->
 
     <section id="admitcard" class="section registration">
-        <div class="container">
+        <div ng-controller="regController" class="container">
             <div class="row">
                 <div class="col-md-12">
                     <h3 class="section-title" align="center">Admit Card Download</h3>
+                    <h2 class="section-title" align="center">Admit Card Will be Availble after 8 PM</h2>
+
                 </div>
             </div>
 
-            <form method="post" onsubmit="return valAdmit()" id="admit">
-                <div id="admitDiv" class="row">
+            <!--<form method="post" id="admit">
+                <div id="abc" class="row">
                     <div class="col-md-12" id="registration-msg" style="display:none;">
                         <div class="alert"></div>
                     </div>
@@ -301,13 +305,11 @@
                         </div>
 
                     </div>
-
-
                 </div>
-                <div class="text-center mt20">
-                    <button type="submit" class="btn btn-black" id="registration-submit-btn">Download Admit Card</button><br><br>
+                <div id="admitDiv" class="text-center mt20">
+                    <button ng-click="getHallTicket()" type="submit" class="btn btn-black" id="registration-submit-btn">Download Admit Card</button><br><br>
                 </div>
-            </form>
+            </form>-->
         </div>
     </section>
 
@@ -764,6 +766,7 @@
     <!-- script -->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/smooth-scroll/dist/js/smooth-scroll.min.js"></script>
     <script src="assets/js/main.js"></script>

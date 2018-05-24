@@ -7,19 +7,27 @@
     <title>IEEE Job Fair 2018</title>
     <meta charset="iso-8859-1">
     <link rel="stylesheet" href="css/layout.css" type="text/css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
-<body ng-controller="regController">
+<body class="container" ng-controller="loginController">
     <div class="wrapper row1">
         <header id="header" class="clear">
             <div id="hgroup">
-                <h1><a href="./index.html">IEEE Job Fair 2018</a></h1>
-                <h2>Welcome {{user.uid}}</h2>
+                <h1><a href="index.html">IEEE Job Fair 2018</a></h1>
+                <h2>Welcome {{user}}</h2>
             </div>
             <nav>
                 <ul>
-                    <li><a href="loginpage.html">Home</a></li>
-                    <li><a href="./index.html">Logout</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><button class="btn btn-danger" ng-click="logout()">Logout</button></li>
                 </ul>
             </nav>
         </header>
@@ -28,8 +36,8 @@
         <div id="container" class="clear">
             <div id="content">
                 <section>
-
-                    <h2>Will Be Updated Soon.</h2>
+                    <h3>Download the Admit Card by clicking the link below</h3>
+                    <button class="btn btn-primary" ng-click="download()">Download HallTicket</button>
                     <Br>
                 </section>
 
@@ -48,21 +56,21 @@
             </aside>-->
         </div>
     </div>
-    <div id="footer" class="clear">
-
+    <!--<div id="footer" class="clear">
         <div class="wrapper row4">
             <footer id="copyright" class="clear">
                 <p align="center">Copyright &copy; 2018 - All Rights Reserved - <a href="#">IEEE Kerala Section</a></p>
                 <p align="center">Developed by IEEE Kerala Section</p>
             </footer>
         </div>
-
-        <script src="bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
-        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="bower_components/smooth-scroll/dist/js/smooth-scroll.min.js"></script>
-        <script src="assets/js/main.js"></script>
-        <script src="assets/js/controller.js"></script>
+    </div>-->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/smooth-scroll/dist/js/smooth-scroll.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/controller.js"></script>
 
 </body>
 

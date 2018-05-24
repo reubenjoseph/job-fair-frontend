@@ -1,9 +1,12 @@
 /** *************Angular controller JS*********************/
-var app = angular.module('jobfair', []);
+var app = angular.module('jobfair', ['ngStorage']);
 
-app.controller('regController', ['$scope', '$http', '$window', '$sce', function($scope, $http, $window) {
+app.controller('regController', ['$scope', '$http', '$window', '$localStorage', function($scope, $http, $window, $localStorage) {
 
-    var host = 'http://34.242.23.100:3030'
+    // var host = 'http://34.242.23.100:3030'
+    var host = 'http://localhost:3030'
+
+    var test = "FILE UPDATED";
     $scope.register = function() {
         var url = host + '/register';
         $http.post(url, $scope.data).then(function(success) {
@@ -23,8 +26,9 @@ app.controller('regController', ['$scope', '$http', '$window', '$sce', function(
             var resp = success.data;
             $scope.status = resp.msg;
             if (resp.success) {
-                alert("Your user ID is : " + resp.user + ".Please note this ID down for future use.Download your admit card from the website!.All communications will be made temporarily though email.");
-                // $window.location.href = './loginpage.html';
+                $localStorage.token = resp.token;
+                $localStorage.user = resp.user;
+                $window.location.href = './loginpage.html';
             } else {
                 alert('Login Failed : ' + resp.msg);
             }
@@ -60,21 +64,60 @@ app.controller('regController', ['$scope', '$http', '$window', '$sce', function(
         });
     };
 
-    $scope.getHallTicket = function() {
-        var url = host + '/getHallTicket';
-        $http.post(url, $scope.data.admit, { responseType: 'arraybuffer' }).then(function(success) {
+    // $scope.getHallTicket = function() {
+    //     var url = host + '/getHallTicket';
+    //     $http.post(url, $scope.data.admit, { responseType: 'arraybuffer' }).then(function(success) {
+    //         var resp = success.data;
+    //         console.log(resp);
+    //         if (resp.success != null) {
+    //             $scope.status = resp.msg;
+    //             alert(resp.msg);
+    //             $scope.admit = {};
+    //         } else {
+    //             var file = new Blob([resp], { type: 'application/pdf' });
+    //             var fileURL = URL.createObjectURL(file);
+    //             $window.open(fileURL);
+    //         }
+
+    //     }, function(err) {
+    //         // console.log(err);
+    //     });
+    // };
+
+}]);
+
+app.controller('loginController', ['$scope', '$http', '$window', '$localStorage', function($scope, $http, $window, $localStorage) {
+    $scope.user = $localStorage.user;
+
+    if ($localStorage.token == null) {
+        $window.location.href = 'index.html';
+    }
+    $scope.logout = function() {
+        $localStorage.$reset();
+        $window.location.href = './index.html';
+    }
+
+    $scope.download = function() {
+        // var host = 'http://34.242.23.100:3030'
+        var host = 'http://localhost:3030'
+
+        var url = host + '/admitCard';
+        $http.post(url, { token: $localStorage.token }, { responseType: 'arraybuffer' }).then(function(success) {
             var resp = success.data;
-            var file = new Blob([resp], { type: 'application/pdf' });
-            var fileURL = URL.createObjectURL(file);
-            $window.open(fileURL);
+            console.log(resp);
             if (resp.success != null) {
                 $scope.status = resp.msg;
                 alert(resp.msg);
                 $scope.admit = {};
+            } else {
+                var file = new Blob([resp], { type: 'application/pdf' });
+                var fileURL = URL.createObjectURL(file);
+                $window.open(fileURL);
             }
+
         }, function(err) {
             // console.log(err);
         });
-    };
+    }
 
 }]);

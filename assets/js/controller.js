@@ -3,8 +3,8 @@ var app = angular.module('jobfair', ['ngStorage']);
 
 app.controller('regController', ['$scope', '$http', '$window', '$localStorage', function($scope, $http, $window, $localStorage) {
 
-    // var host = 'http://34.242.23.100:3030'
-    var host = 'http://localhost:3030'
+    var host = 'http://34.242.23.100:3030'
+        // var host = 'http://localhost:3030'
 
     var test = "FILE UPDATED";
     $scope.register = function() {
@@ -98,9 +98,7 @@ app.controller('loginController', ['$scope', '$http', '$window', '$localStorage'
     }
 
     $scope.download = function() {
-        // var host = 'http://34.242.23.100:3030'
-        var host = 'http://localhost:3030'
-
+        var host = 'http://34.242.23.100:3030'
         var url = host + '/admitCard';
         $http.post(url, { token: $localStorage.token }, { responseType: 'arraybuffer' }).then(function(success) {
             var resp = success.data;

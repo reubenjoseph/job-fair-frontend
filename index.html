@@ -70,12 +70,11 @@
             <br>
             <br>
             <center>
-                <p><b> Visit <a href="https://www.facebook.com/jobfairieee"> Facebook Page </a> for Updaste.</b></p>
+                <p><b> Visit <a href="https://www.facebook.com/jobfairieee"> Facebook Page </a> for Updates.</b></p>
             </center>
             <br>
-            <marquee><b>Click <a href="#testchange">Here</a> to Update Test Centres</b>
+            <marquee><b>Click <a href="#admitcard">Here</a> to Download Admit Card</b>
             </marquee>
-
         </div>
     </header>
 
@@ -91,7 +90,8 @@
                 <li>Non IEEE Members must fill in the 'Payment Conifrmation (For Non IEEE Members)' form once you complete the payment.</li>
                 <li>Dates and details of Aptitude test will be notified through Email.</li>
             </ol>
-            <a class="btn btn-black" href="registernow.html" target="_blank">Register Now</a>
+            <h3>Registration Closed!!</h3>
+            <!--<a class="btn btn-black" href="registernow.html" target="_blank">Register Now</a>-->
         </div>
     </section>
     <center>
@@ -132,7 +132,45 @@
         </section>
     </center>
 
-    <section id="nonieee" class="section registration">
+    <!--<section id="nonieee" class="section registration">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="section-title" align="center">Payment Conifrmation (For Non IEEE Members)</h3>
+                </div>
+            </div>
+
+            <form method="post" onsubmit="return validate()" id="upd">
+                <div id="updiv" class="row">
+                    <div class="col-md-12" id="registration-msg" style="display:none;">
+                        <div class="alert"></div>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="form-group">
+                            <input ng-model="data.upd.email" type="email" class="form-control" placeholder="Email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group" align="center">
+                            <input ng-model="data.upd.password" type="password" class="form-control" placeholder="Password" id="password" name="password" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input ng-model="data.upd.transID" type="text" class="form-control" placeholder="Yepdesk transactional Id" id="yepdesk" name="yepdesk" required>
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <div class="text-center mt20">
+                    <button type="submit" class="btn btn-black" id="registration-submit-btn">Update Details</button><br><br>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!--<section id="nonieee" class="section registration">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -234,6 +272,40 @@
                 </div>
                 <div class="text-center mt20">
                     <button type="submit" ng-click="updateVenues()" class="btn btn-black" id="updv">Update Venues</button><br><br>
+                </div>
+            </form>
+        </div>
+    </section>-->
+
+    <section id="admitcard" class="section registration">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="section-title" align="center">Admit Card Download</h3>
+                </div>
+            </div>
+
+            <form method="post" onsubmit="return valAdmit()" id="admit">
+                <div id="admitDiv" class="row">
+                    <div class="col-md-12" id="registration-msg" style="display:none;">
+                        <div class="alert"></div>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="form-group">
+                            <input ng-model="data.admit.email" type="email" class="form-control" placeholder="Email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group" align="center">
+                            <input ng-model="data.admit.password" type="password" class="form-control" placeholder="Password" id="password" name="password" required>
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <div class="text-center mt20">
+                    <button type="submit" class="btn btn-black" id="registration-submit-btn">Download Admit Card</button><br><br>
                 </div>
             </form>
         </div>
@@ -666,6 +738,25 @@
             }
 
             angular.element(document.getElementById('updiv')).scope().updateNonIEEE();
+
+        }
+
+        function valAdmit() {
+            var email = document.forms["admit"]["email"].value;
+
+            if (email == null || email == "") {
+                alert("Email ID must be filled out ");
+                return false;
+            }
+
+            var pass = document.forms["admit"]["password"].value;
+
+            if (pass == null || pass == "") {
+                alert("Password must be filled out ");
+                return false;
+            }
+
+            angular.element(document.getElementById('admitDiv')).scope().getHallTicket();
 
         }
     </script>

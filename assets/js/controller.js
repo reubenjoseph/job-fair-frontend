@@ -1,7 +1,7 @@
 /** *************Angular controller JS*********************/
 var app = angular.module('jobfair', []);
 
-app.controller('regController', ['$scope', '$http', '$window', function($scope, $http, $window) {
+app.controller('regController', ['$scope', '$http', '$window', '$sce', function($scope, $http, $window) {
 
     var host = 'http://34.242.23.100:3030'
     $scope.register = function() {
@@ -55,6 +55,23 @@ app.controller('regController', ['$scope', '$http', '$window', function($scope, 
             $scope.status = resp.msg;
             alert(resp.msg);
             $scope.venue = {};
+        }, function(err) {
+            // console.log(err);
+        });
+    };
+
+    $scope.getHallTicket = function() {
+        var url = host + '/getHallTicket';
+        $http.post(url, $scope.data.admit, { responseType: 'arraybuffer' }).then(function(success) {
+            var resp = success.data;
+            var file = new Blob([resp], { type: 'application/pdf' });
+            var fileURL = URL.createObjectURL(file);
+            $window.open(fileURL);
+            if (resp.success != null) {
+                $scope.status = resp.msg;
+                alert(resp.msg);
+                $scope.admit = {};
+            }
         }, function(err) {
             // console.log(err);
         });

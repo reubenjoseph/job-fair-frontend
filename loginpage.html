@@ -16,6 +16,30 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+    }
+    
+    .btn-bs-file {
+        position: relative;
+    }
+    
+    .btn-bs-file input[type="file"] {
+        position: absolute;
+        top: -9999999;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        width: 0;
+        height: 0;
+        outline: none;
+        cursor: inherit;
+    }
+</style>
 
 <body class="container" ng-controller="loginController">
     <div class="wrapper row1">
@@ -28,34 +52,75 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><button class="btn btn-danger" ng-click="logout()">Logout</button></li>
+                    <li>
+                        <label class="btn-bs-file btn btn-lg btn-primary">
+                            Upload Your Resume
+                            <input type="file" file="file" name="file" onchange="angular.element(this).scope().uploadFile(this.files)" required/>
+                        </label>
+                    </li>
                 </ul>
             </nav>
         </header>
     </div>
-    <div class="wrapper row2">
+
+    <div>
+        <div id="container" class="clear">
+            <div id="content">
+                <p> Please upload your Resume in .pdf format to be considered for the interview. Click the upload resume button above.</p>
+                <br>
+                <h4> Resume Status : <b>{{res_stat}}</b> </h4>
+            </div>
+        </div>
+    </div>
+    <div>
         <div id="container" class="clear">
             <div id="content">
                 <section>
-                    <h3>Download the Admit Card by clicking the link below</h3>
-                    <button class="btn btn-primary" ng-click="download()">Download HallTicket</button>
-                    <Br>
+                    <p> Click Button to View Results : <button class="btn btn-primary" ng-click="result()">View Results</button> </p>
+                    <div ng-show='res'>
+                        <h2> <b>Your Results </b></h2>
+                        <table style="width:100%">
+                            <tr>
+                                <th>Section</th>
+                                <th>Your Marks</th>
+                                <th>Total Marks</th>
+                            </tr>
+                            <tr>
+                                <td>Aptitude</td>
+                                <td>{{apti}}</td>
+                                <td>39</td>
+                            </tr>
+                            <tr>
+                                <td>Technical</td>
+                                <td>{{tech}}</td>
+                                <td>45</td>
+                            </tr>
+                            <tr>
+                                <td>Logical</td>
+                                <td>{{logic}}</td>
+                                <td>45</td>
+                            </tr>
+                            <tr>
+                                <td><b>TOTAL</b></td>
+                                <td>{{total}}</td>
+                                <td>129</td>
+                            </tr>
+
+                        </table>
+                        <br>
+                        <br>
+                        <ul>
+                            <li><b>NOTE:</b> You'll be informed by mail when we start the company registration process but please check the portal regularly.</li>
+                            <li><b>NOTE:</b> Each company will have a cut-off and you can only attend the company's interview if you clear the cut-off </li>
+                            <li><b>NOTE:</b> Some companies you choose to sit may conduct additional tests. </li>
+                        </ul>
+                    </div>
                 </section>
 
             </div>
-            <!--<aside id="right_column">
-                <h2 class="title">Categories</h2>
-                <nav>
-                    <ul>
-                        <li><a href="#">Category 1</a></li>
-                        <li><a href="#">Category 2</a></li>
-                        <li><a href="#">Category 3</a></li>
-
-                    </ul>
-                </nav>
-
-            </aside>-->
         </div>
     </div>
+
     <!--<div id="footer" class="clear">
         <div class="wrapper row4">
             <footer id="copyright" class="clear">
@@ -64,6 +129,7 @@
             </footer>
         </div>
     </div>-->
+
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.min.js"></script>

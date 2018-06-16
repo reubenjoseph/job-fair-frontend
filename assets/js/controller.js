@@ -19,18 +19,18 @@ app.controller('regController', ['$scope', '$http', '$window', '$localStorage', 
         };
     });
 
-    // $scope.register = function() {
-    //     var url = host + '/register';
-    //     $http.post(url, $scope.data).then(function(success) {
-    //         var resp = success.data;
-    //         // console.log(resp);
-    //         $scope.status = resp.msg;
-    //         alert(resp.msg);
-    //         $scope.data = {};
-    //     }, function(err) {
-    //         // console.log(err);
-    //     });
-    // };
+    $scope.register = function() {
+        var url = host + '/register';
+        $http.post(url, $scope.data).then(function(success) {
+            var resp = success.data;
+            // console.log(resp);
+            $scope.status = resp.msg;
+            alert(resp.msg);
+            $scope.data = {};
+        }, function(err) {
+            // console.log(err);
+        });
+    };
 
     $scope.loginFn = function() {
         var url = host + '/login';
@@ -142,6 +142,8 @@ app.controller('loginController', ['$scope', '$http', '$window', '$localStorage'
             if (success.data.success == true) {
                 $window.location.reload();
                 alert(success.data.data);
+                $localStorage.res_stat = 1;
+                $scope.res_stat = getStat($localStorage.res_stat);
             } else {
                 alert(success.data.data);
             }

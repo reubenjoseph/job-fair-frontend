@@ -112,7 +112,8 @@ app.controller('loginController', ['$scope', '$http', '$window', '$localStorage'
     $scope.res = false;
     $scope.res_stat = getStat($localStorage.res_stat);
 
-    var host = 'http://34.242.23.100:3030'
+    // var host = 'http://34.242.23.100:3030'
+    var host = 'http://localhost:3030'
 
     if ($localStorage.token == null) {
         $window.location.href = 'index.html';
@@ -191,4 +192,74 @@ app.controller('loginController', ['$scope', '$http', '$window', '$localStorage'
             // console.log(err);
         });
     };
+
+    function getSelectedComp(company_list)
+    {
+        var url = host + '/getSelectedCompanies';
+        $http.post(url, { "token": $localStorage.token }).then(function(success) {
+            $scope.choice_list = success.data;
+            // console.log($scope.choice_list);
+            for(var i = 0; i < company_list.length; i++)
+            {
+                if($scope.choice_list.indexOf(company_list[i].company_id) > -1)
+                {
+                    company_list[i].status = "Selected";
+                }
+                else
+                {
+                    company_list[i].status = "Not Selected";
+                }
+            }
+            $scope.company_list = company_list;
+            return;
+        }, function(err) {
+            // console.log(err);
+        });
+    }
+
+    function allCompanies()
+    {
+        $http.get(host+'/allCompanies').then(function(success){
+            $scope.total_companies = success.data;
+        },function(err)
+        {
+            
+        });
+    }
+
+    $scope.getPossibleComp = function(){
+        var url = host + '/getPossibleCompanies';
+        allCompanies();
+        $http.post(url, { "token": $localStorage.token }).then(function(success) {
+            var resp = success.data;
+            if (resp.success) {
+                var temp = resp.data;
+                getSelectedComp(temp);
+            } else {
+                alert('You have not attended the test. You cannot sit for the interview.');
+            }
+        }, function(err) {
+            // console.log(err);
+        });
+    };
+    
+    $scope.companyUpdate = function(company,ch)
+    {
+        var url = host + '/companyUpdate';
+        if(ch == '1' && $scope.choice_list.length == 5)
+        {
+            alert('You cannot choose more companies');
+            return;
+        }
+        $http.post(url, { "token": $localStorage.token , "company_id":company.company_id, "choice":ch-'0'}).then(function(success) {
+            var resp = success.data;
+            getSelectedComp($scope.company_list);
+            alert(resp.data);
+        }, function(err) {
+            // console.log(err);
+        });
+    };
+
+
+
 }]);

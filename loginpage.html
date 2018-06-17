@@ -20,9 +20,12 @@
     table,
     th,
     td {
-        border: 1px solid black;
+        margin:3px;
+        border: 2px solid black;
         border-collapse: collapse;
         text-align: center;
+        padding: 3px;
+
     }
     
     .btn-bs-file {
@@ -53,11 +56,12 @@
                     <li><a href="index.html">Home</a></li>
                     <li><button class="btn btn-danger" ng-click="logout()">Logout</button></li>
                     <li>
-                        <label class="btn-bs-file btn btn-lg btn-primary">
+                        <label class="btn-bs-file btn btn-primary">
                             Upload Your Resume
                             <input type="file" file="file" name="file" onchange="angular.element(this).scope().uploadFile(this.files)" required/>
                         </label>
                     </li>
+                    <li><button class="btn btn-info btn-lg" onclick=location.href="companyreg.html">Company Registration</button></li>
                 </ul>
             </nav>
         </header>

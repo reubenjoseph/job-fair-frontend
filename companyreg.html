@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" ng-app="jobfair">
+
+<head>
+    <link rel="icon" type="image/png" href="fav.png" />
+
+    <title>IEEE Job Fair 2018</title>
+    <meta charset="iso-8859-1">
+    <link rel="stylesheet" href="css/layout.css" type="text/css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+        padding: 3px;
+    }
+    .cellpadding {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }   
+    
+    .btn-bs-file {
+        position: relative;
+    }
+    
+    .btn-bs-file input[type="file"] {
+        position: absolute;
+        top: -9999999;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        width: 0;
+        height: 0;
+        outline: none;
+        cursor: inherit;
+    }
+</style>
+
+<body class="container" ng-controller="loginController">
+        <div class="wrapper row1">
+            <header id="header" class="clear">
+                <div id="hgroup">
+                <h1><a href="index.html">IEEE Job Fair 2018</a></h1>
+                <h2>Welcome {{user}}</h2>
+            </div>
+        </header>
+    </div>
+    <div>
+        <h3>Instructions Before Company Selection</h3>
+        <ul>
+            <li>The companies that you can select are based on the marks you scored and the company's cutoff.</li>
+            <li>You can select a maximum of 5 companies from the list available.</li>
+            <li>You can select or deselect attending a company's interview by choosing the options below.</li>
+            <li>You will be notified about a deadline to finalize your choice. Make sure you complete your selection as soon as possible.</li>
+            <li>You may get special mails if any company you chose insist on another test prior to Job Fair.</li>
+        </ul>
+
+    </div>
+    <h3><b>List of Companies you are eligible to select   </b><button class="btn btn-primary" ng-click="getPossibleComp()">View</button></h3>
+    <div>
+        <div id="container" class="clear">
+            <div id="content">
+                <section>
+                    <div>
+                        <table style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Company Name</th>
+                                    <th>Select</th>
+                                    <th>Deselect</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="comp in company_list">
+                                    <td><b>{{comp.company_name}}</b></td>
+                                    <td><button class="btn btn-info " type="submit " ng-click="companyUpdate(comp,1) ">Select</button></td>
+                                    <td><button class="btn btn-danger " type="submit " ng-click="companyUpdate(comp,0) ">Deselect</button></td>
+                                    <td>{{comp.status}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+    <div>
+        <h4>List of Recruiting Companies</h4>
+        <table>
+            <tr ng-repeat="c in total_companies">
+                <td>{{c}}</td>
+            </tr>
+        </table>
+    </div>
+    <!--<div id="footer" class="clear">
+        <div class="wrapper row4">
+            <footer id="copyright" class="clear">
+                <p align="center">Copyright &copy; 2018 - All Rights Reserved - <a href="#">IEEE Kerala Section</a></p>
+                <p align="center">Developed by IEEE Kerala Section</p>
+            </footer>
+        </div>
+    </div>-->
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/smooth-scroll/dist/js/smooth-scroll.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/controller.js"></script>
+
+</body>
+
+</html>
